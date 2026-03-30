@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRPL Movie</title>
+
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+  <style>
+    body { background: #111; color: #eee; }
+
+    /* Navbar */
+    .navbar-brand { font-weight: 700; font-size: 1.4rem; letter-spacing: 2px; color: #e8b84b !important; }
+
+    /* Hero search area */
+    .hero { padding: 3rem 0 1.5rem; text-align: center; }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; color: #e8b84b; letter-spacing: 3px; }
+    .hero p  { color: #aaa; margin-bottom: 1.5rem; }
+
+    /* Card film */
+    .card {
+      background: #1e1e2e;
+      border: 1px solid #2a2a3a;
+      border-radius: 10px;
+      transition: transform .2s, border-color .2s;
+      height: 100%;
+    }
+    .card:hover { transform: translateY(-5px); border-color: #e8b84b; }
+    .card-img-top {
+      height: 280px; object-fit: cover;
+      border-radius: 10px 10px 0 0;
+      background: #2a2a3a;
+    }
+    .card-title { font-size: .95rem; font-weight: 600; color: #eee; }
+    .card-subtitle { font-size: .8rem; }
+
+    /* Modal */
+    .modal-content { background: #1e1e2e; color: #eee; border: 1px solid #2a2a3a; }
+    .modal-header { border-bottom: 1px solid #2a2a3a; }
+    .modal-footer { border-top: 1px solid #2a2a3a; }
+    .list-group-item {
+      background: #1e1e2e;
+      color: #eee;
+      border-color: #2a2a3a;
+      font-size: .9rem;
+    }
+    .img-fluid { border-radius: 8px; }
+
+    /* Error / empty */
+    #empty-state { padding: 3rem; text-align: center; color: #666; display: none; }
+  </style>
+</head>
+<body>
+
+<!-- ======== NAVBAR ======== -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">TRPL Movie</a>
+    <div class="collapse navbar-collapse">
+      <div class="navbar-nav ml-auto">
+        <a class="nav-link active" href="#">Search Movie</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ======== HERO / SEARCH ======== -->
+<div class="container hero">
+  <h1>Search Movie</h1>
+  <p>Temukan informasi film dari seluruh dunia</p>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control bg-dark text-light border-secondary"
+               placeholder="Movie title..." id="search-input">
+        <div class="input-group-append">
+          <button class="btn btn-warning" type="button" id="button-search">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr style="border-color:#2a2a3a;">
+
+<!-- ======== HASIL PENCARIAN ======== -->
+<div class="container">
+  <div class="row mt-3" id="movie-list">
+    <!-- hasil film ditampilkan di sini oleh script.js -->
+  </div>
+  <div id="empty-state">
+    <h4>🔍 Film tidak ditemukan</h4>
+    <p>Coba kata kunci lain</p>
+  </div>
+</div>
+
+<!-- ======== MODAL DETAIL ======== -->
+<div class="modal fade" id="exampleModal" tabindex="-1"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Movie Detail</h5>
+        <button type="button" class="close text-light" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- diisi oleh script.js -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======== SCRIPTS ======== -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
